@@ -1,2 +1,6 @@
 *.iml
 .idea/
+target/
+src/main/webapp/app/build/
+src/main/webapp/app/node_modules/
+src/main/webapp/app/vendor/
