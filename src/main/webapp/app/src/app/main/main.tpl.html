@@ -1,0 +1,32 @@
+<div class="row">
+    <form name="form" ng-submit="updateSettings()">
+        <fieldset>
+            <legend>Login</legend>
+
+            <div class="row">
+                <div class="small-8 columns">
+                    <label>Login</label>
+                    <input type="text" placeholder="Name" name="name" ng-model="settings.name" ng-minlength=3 ng-maxlength=20 ng-pattern="/^[a-zA-Z]+$/" required/>
+                    <div ng-show="form.name.$error.minlength">Your name must be more than 3 characters</div>
+                    <div ng-show="form.name.$error.maxlength">Your name must be less than 20 characters</div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="small-8 columns">
+                    <label>Password</label>
+                    <input type="password" placeholder="Password" name="password" ng-model="settings.password" required/>
+                    <div ng-show="form.password.$dirty &&  form.password.$invalid">
+                        <span ng-show="form.password.$error.password"> Please enter password</span>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="push-9 small-3">
+                <button type="submit" class="button" ng-disabled="form.$dirty && form.$invalid">Login</button>
+            </div>
+
+        </fieldset>
+    </form>
+</div>

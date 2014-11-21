@@ -3,11 +3,14 @@ angular.module( 'ngBoilerplate', [
   'templates-common',
   'ngBoilerplate.home',
   'ngBoilerplate.about',
+  'ngBoilerplate.mail',
+  'ngBoilerplate.main',
+  'ngBoilerplate.settings',
   'ui.router'
 ])
 
 .config( function myAppConfig ( $stateProvider, $urlRouterProvider ) {
-  $urlRouterProvider.otherwise( '/home' );
+  $urlRouterProvider.otherwise( '/main' );
 })
 
 .run( function run () {
@@ -19,7 +22,20 @@ angular.module( 'ngBoilerplate', [
       $scope.pageTitle = toState.data.pageTitle + ' | ngBoilerplate' ;
     }
   });
-})
 
-;
+
+        $scope.selectedMail = undefined;
+
+        $scope.setSelectedMail = function(mail){
+            $scope.selectedMail = mail;
+        };
+
+        $scope.isSelected = function(mail){
+            if($scope.selectedMail){
+                return $scope.selectedMail === mail;
+            }
+        };
+
+
+});
 
