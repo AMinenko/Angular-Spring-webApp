@@ -38,7 +38,8 @@ public class MailController {
     @RequestMapping(method = RequestMethod.POST, value="postMail", consumes = MediaType.ALL_VALUE)
     @ResponseStatus(HttpStatus.OK)
     public void postMail(@RequestBody Mail mail){
-        System.out.println(mail);
+        System.out.println(mail.getSubject());
+        System.out.println(mail.getSentAt());
     }
 
 

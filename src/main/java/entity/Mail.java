@@ -1,11 +1,13 @@
 package entity;
 
+import java.util.Date;
+
 public class Mail{
     private long id;
     private String from;
     private String to;
     private String subject;
-    private String date;
+    private Date sentAt;
     private String body;
 
     public long getId() {
@@ -40,12 +42,12 @@ public class Mail{
         this.subject = subject;
     }
 
-    public String getDate() {
-        return date;
+    public Date getSentAt() {
+        return sentAt;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public void setSentAt(Date sentAt) {
+        this.sentAt = sentAt;
     }
 
     public String getBody() {

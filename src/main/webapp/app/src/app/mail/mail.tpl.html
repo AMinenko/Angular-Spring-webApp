@@ -20,12 +20,13 @@
             <div class="row">
                 <div class="small-11 columns">
                     To:<input ng-model="reply.to" type="email" placeholder="">
+                    <input ng-model="reply.subject" type="text" placeholder="" value="{{reply.subject}}">
                 </div>
                 <div class="small-11 columns">
                   <textarea ng-model="reply.body">{{reply.body}} </textarea>
                 </div>
             </div>
-            <button class="button-radius" ng-click="postReply(reply)">Send</button>
+            <button class="button-radius" ng-click="sendReply(reply)">Send</button>
             <button class="button-radius" ng-click="toggleReplyForm()">Cancel</button>
         </form>
 

@@ -14,7 +14,6 @@ angular.module('ngBoilerplate.mail', ['ui.router'])
     })
 
 .controller("MailController", function ($scope, $http) {
-    //    $http.defaults.headers.post["Content-Type"] = "application/json";
 
         $scope.email = [];
         $scope.selectedMail = undefined;
@@ -33,12 +32,14 @@ angular.module('ngBoilerplate.mail', ['ui.router'])
          });
 
        $scope.sendReply = function(reply) {
+           reply.sentAt = new Date();
            $http.post('/basic-web-app/postMail', reply).success(function(reply,status,headers,config){
                console.log(reply);
            });
        };
 
         $scope.setSelectedMail = function(mail){
+            $scope.showingReply=false;
             $scope.selectedMail = mail;
             $scope.reply={};
 
@@ -53,33 +54,11 @@ angular.module('ngBoilerplate.mail', ['ui.router'])
         $scope.toggleReplyForm =  function(){
               $scope.showingReply=!$scope.showingReply;
               $scope.reply.to = $scope.selectedMail.from;
+              $scope.reply.subject = "Re: "+ $scope.selectedMail.subject;
               $scope.reply.body = "\n---------------------------- \n\n" + $scope.selectedMail.body;
 
         };
 
-
-
-
-
-        $scope.postReply =  function(reply){
-                console.log(reply);
-                var postObject = {};
-                postObject.id = reply.id;
-                postObject.from = reply.from;
-                postObject.to = reply.to;
-                postObject.subject = reply.subject;
-                postObject.body = reply.body;
-
-                console.log(postObject);
-                $http({method: 'POST', url: '/basic-web-app/postMail', data: postObject});
-            /*
-             {
-             ,
-             data: reply,
-             headers: {'Content-Type': 'application/json'}
-             }
-             */
-        };
 
        /* $scope.watch('selectedMail', function(evt){
            $scope.showingReply = false;
