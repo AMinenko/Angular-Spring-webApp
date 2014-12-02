@@ -24,18 +24,5 @@ angular.module( 'ngBoilerplate', [
   });
 
 
-        $scope.selectedMail = undefined;
-
-        $scope.setSelectedMail = function(mail){
-            $scope.selectedMail = mail;
-        };
-
-        $scope.isSelected = function(mail){
-            if($scope.selectedMail){
-                return $scope.selectedMail === mail;
-            }
-        };
-
-
 });
 

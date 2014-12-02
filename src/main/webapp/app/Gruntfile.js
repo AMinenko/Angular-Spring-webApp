@@ -108,6 +108,16 @@ module.exports = function ( grunt ) {
           }
        ]   
       },
+        build_app_static: {
+            files: [
+                {
+                    src: [ '**' ],
+                    dest: '<%= build_dir %>/static/',
+                    cwd: 'src/static',
+                    expand: true
+                }
+            ]
+        },
       build_vendor_assets: {
         files: [
           { 
@@ -145,6 +155,16 @@ module.exports = function ( grunt ) {
             src: [ '**' ],
             dest: '<%= compile_dir %>/assets',
             cwd: '<%= build_dir %>/assets',
+            expand: true
+          }
+        ]
+      },
+      compile_static: {
+        files: [
+          {
+            src: [ '**' ],
+            dest: '<%= compile_dir %>/static',
+            cwd: '<%= build_dir %>/static',
             expand: true
           }
         ]
@@ -246,11 +266,13 @@ module.exports = function ( grunt ) {
       build: {
         files: {
           '<%= build_dir %>/assets/<%= pkg.name %>-<%= pkg.version %>.css': '<%= app_files.less %>'
+
         }
       },
       compile: {
         files: {
           '<%= build_dir %>/assets/<%= pkg.name %>-<%= pkg.version %>.css': '<%= app_files.less %>'
+
         },
         options: {
           cleancss: true,
@@ -471,7 +493,7 @@ module.exports = function ( grunt ) {
         files: [ 
           'src/assets/**/*'
         ],
-        tasks: [ 'copy:build_app_assets', 'copy:build_vendor_assets' ]
+        tasks: [ 'copy:build_app_assets', 'copy:build_vendor_assets', 'copy:build_app_static' ]
       },
 
       /**
@@ -555,7 +577,7 @@ module.exports = function ( grunt ) {
     'clean', 'html2js', 'jshint', 'coffeelint', 'coffee', 'less:build',
     'concat:build_css', 'copy:build_app_assets', 'copy:build_vendor_assets',
     'copy:build_appjs', 'copy:build_vendorjs', 'index:build', 'karmaconfig',
-    'karma:continuous' 
+    'karma:continuous','copy:build_app_static'
   ]);
 
   /**
@@ -563,7 +585,7 @@ module.exports = function ( grunt ) {
    * minifying your code.
    */
   grunt.registerTask( 'compile', [
-    'less:compile', 'copy:compile_assets', 'ngmin', 'concat:compile_js', 'uglify', 'index:compile'
+    'less:compile', 'copy:compile_assets', 'copy:compile_static','ngmin', 'concat:compile_js', 'uglify', 'index:compile'
   ]);
 
   /**

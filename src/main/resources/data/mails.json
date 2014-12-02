@@ -5,6 +5,7 @@
             "from":"anmi@mail.ru",
             "to": "andrewph@mail.ru",
             "subject": "Why AngularJS?" ,
+            "sentAt":"24-11-20014 19:02:05",
             "body": "HTML is great for declaring static documents, but it falters when we try to use it for declaring dynamic views in web-applications. AngularJS lets you extend HTML vocabulary for your application. The resulting environment is extraordinarily expressive, readable, and quick to develop."
         },
 
@@ -13,6 +14,7 @@
             "from":"anmi@mail.ru",
             "to": "andrewph@mail.ru",
             "subject": "Alternatives" ,
+            "sentAt":"24-11-20014 19:02:05",
             "body": "Other frameworks deal with HTML’s shortcomings by either abstracting away HTML, CSS, and/or JavaScript or by providing an imperative way for manipulating the DOM. Neither of these address the root problem that HTML was not designed for dynamic views."
         },
 
@@ -21,6 +23,7 @@
             "from":"anmi@mail.ru",
             "to": "andrewph@mail.ru",
             "subject": "Extensibility" ,
+            "sentAt":"24-11-20014 19:02:05",
             "body": "AngularJS is a toolset for building the framework most suited to your application development. It is fully extensible and works well with other libraries. Every feature can be modified or replaced to suit your unique development workflow and feature needs. Read on to find out how"
         },
        {
@@ -28,6 +31,7 @@
             "from":"anmi@mail.ru",
             "to": "andrewph@mail.ru",
             "subject": "Data Binding" ,
+            "sentAt":"24-11-20014 19:02:05",
             "body": "Data-binding is an automatic way of updating the view whenever the model changes, as well as updating the model whenever the view changes. This is awesome because it eliminates DOM manipulation from the list of things you have to worry about."
         },
        {
@@ -35,6 +39,7 @@
            "from":"anmi@mail.ru",
            "to": "andrewph@mail.ru",
            "subject": "Embeddable" ,
+           "sentAt":"24-11-20014 19:02:05",
            "body": "AngularJS works great with other technologies. Add as much or as little of AngularJS to an existing page as you like. Many other frameworks require full commitment. This page has multiple AngularJS applications embedded in it. Because AngularJS has no global state multiple apps can run on a single page without the use of iframes. We encourage you to view-source and look around."
        },
 
@@ -43,6 +48,7 @@
            "from":"anmi@mail.ru",
            "to": "andrewph@mail.ru",
            "subject": "Injectable" ,
+           "sentAt":"24-11-20014 19:02:05",
            "body": "The dependency injection in AngularJS allows you to declaratively describe how your application is wired. This means that your application needs no main() method which is usually an unmaintainable mess. Dependency injection is also a core to AngularJS. This means that any component which does not fit your needs can easily be replaced."
        },
 
@@ -51,13 +57,15 @@
            "from":"anmi@mail.ru",
            "to": "andrewph@mail.ru",
            "subject": "Testable" ,
+           "sentAt":"24-11-20014 19:02:05",
            "body": "AngularJS was designed from ground up to be testable. It encourages behavior-view separation, comes pre-bundled with mocks, and takes full advantage of dependency injection. It also comes with end-to-end scenario runner which eliminates test flakiness by understanding the inner workings of AngularJS."
        },
        {
            "id":8,
            "from":"anmi@mail.ru",
            "to": "andrewph@mail.ru",
-           "subject": "Reusable compnents" ,
+           "subject": "Reusable compnents",
+           "sentAt":"24-11-20014 19:02:05",
            "body": "Data-binding is an automatic way of updating the view whenever the model changes, as well as updating the model whenever the view changes. This is awesome because it eliminates DOM manipulation from the list of things you have to worry about."
        }
 

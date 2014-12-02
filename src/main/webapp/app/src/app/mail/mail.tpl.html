@@ -3,8 +3,8 @@
         <ul id="emailListing">
             <li ng-repeat="mail in email" ng-click="setSelectedMail(mail)">
                 <div class="container emailListing" ng-class="{selected: isSelected(mail)}">
-                    <div class="small-8 columns"> {{mail.from}}</div>
-                    <div class="small-12 columns"> {{mail.subject}}</div>
+                    <span class="small-8 columns"> {{mail.from}}</span>
+                    <span class="small-12 columns"> {{mail.subject}}</span>
                 </div>
             </li>
         </ul>
@@ -12,4 +12,34 @@
 
 <div class="small-8 columns">
     <h2>Content</h2>
+    <div ng-show="!selectedMail">
+        <h4>No conversation selected</h4>
+    </div>
+    <div ng-show="selectedMail">
+        <form id="replyForm" ng-show="showingReply">
+            <div class="row">
+                <div class="small-11 columns">
+                    To:<input ng-model="reply.to" type="email" placeholder="">
+                </div>
+                <div class="small-11 columns">
+                  <textarea ng-model="reply.body">{{reply.body}} </textarea>
+                </div>
+            </div>
+            <button class="button-radius" ng-click="postReply(reply)">Send</button>
+            <button class="button-radius" ng-click="toggleReplyForm()">Cancel</button>
+        </form>
+
+
+        <div class="row header">
+            <div class="small-6 collumns">{{selectedMail.subject}}</div>
+
+        </div>
+        <div class="row actions">
+            <div class="small-8 columns">{{selectedMail.from}} to {{selectedMail.to}}</div>
+            <div class="small-8 columns">{{selectedMail.sentAt | date:'MM/dd/yy'}}</div>
+            <a ng-click="toggleReplyForm()" class="button radius push-3">Reply</a>
+            <div class="small-12 columns()" ng-bind="selectedMail.body"/>
+            </div>
+        </div>
+    </div>
 </div>
