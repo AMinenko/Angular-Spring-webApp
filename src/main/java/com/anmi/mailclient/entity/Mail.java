@@ -1,4 +1,4 @@
-package entity;
+package com.anmi.mailclient.entity;
 
 import java.util.Date;
 
@@ -9,6 +9,16 @@ public class Mail{
     private String subject;
     private Date sentAt;
     private String body;
+
+    public Account getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(Account author) {
+        this.author = author;
+    }
+
+    private Account author;
 
     public long getId() {
         return id;

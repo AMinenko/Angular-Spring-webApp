@@ -1,6 +1,6 @@
-package web.controllers;
+package com.anmi.mailclient.web.controllers;
 
-import entity.Mail;
+import com.anmi.mailclient.entity.Mail;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
