@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:cache="http://www.springframework.org/schema/cache" xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
 
     <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
         <property name="dataSource" ref="dataSource" />
-        <property name="packagesToScan" value="com.anmi.mailclient.entity" />
+        <property name="packagesToScan" value="com.anmi.mailclient.core" />
 
         <property name="hibernateProperties">
             <props>
-
                 <prop key="hibernate.jdbc.batch_size">20</prop>
-
                 <prop key="hibernate.cache.use_second_level_cache">false</prop>
                 <prop key="hibernate.dialect">${hibernate.dialect}</prop>
                 <prop key="hibernate.show_sql">${hibernate.show_sql}</prop>
@@ -32,9 +31,6 @@
         <property name="testOnBorrow" value="true" />
         <property name="timeBetweenEvictionRunsMillis" value="3600" />
         <property name="validationQuery" value="SELECT 1" />
-
-
-
     </bean>
 
     <bean class="org.springframework.orm.hibernate4.HibernateTransactionManager" id="transactionManager">
@@ -42,7 +38,4 @@
     </bean>
 
     <tx:annotation-driven transaction-manager="transactionManager" />
-
-
-
 </beans>

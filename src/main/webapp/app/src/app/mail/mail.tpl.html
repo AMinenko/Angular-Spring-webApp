@@ -37,7 +37,7 @@
         </div>
         <div class="row actions">
             <div class="small-8 columns">{{selectedMail.from}} to {{selectedMail.to}}</div>
-            <div class="small-8 columns">{{selectedMail.sentAt | date:'MM/dd/yy'}}</div>
+            <div class="small-8 columns">{{selectedMail.sentAt | date:'yyyy-MMMM-d HH:mm'}}</div>
             <a ng-click="toggleReplyForm()" class="button radius push-3">Reply</a>
             <div class="small-12 columns()" ng-bind="selectedMail.body"/>
             </div>

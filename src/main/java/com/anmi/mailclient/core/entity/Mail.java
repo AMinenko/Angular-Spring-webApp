@@ -1,32 +1,31 @@
-package com.anmi.mailclient.entity;
+package com.anmi.mailclient.core.entity;
 
+import org.hibernate.annotations.Type;
+
+import javax.persistence.*;
 import java.util.Date;
 
+@Entity
+@Table(name="mails")
 public class Mail{
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
+
+    @Column(name = "sent_from")
     private String from;
-    private String to;
+
+    @Column
     private String subject;
+
+    @Column
+    @Temporal(TemporalType.TIMESTAMP)
     private Date sentAt;
+
+    @Column
+    @Type(type="text")
     private String body;
-
-    public Account getAuthor() {
-        return author;
-    }
-
-    public void setAuthor(Account author) {
-        this.author = author;
-    }
-
-    private Account author;
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
 
     public String getFrom() {
         return from;
@@ -36,12 +35,12 @@ public class Mail{
         this.from = from;
     }
 
-    public String getTo() {
-        return to;
+    public long getId() {
+        return id;
     }
 
-    public void setTo(String to) {
-        this.to = to;
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getSubject() {

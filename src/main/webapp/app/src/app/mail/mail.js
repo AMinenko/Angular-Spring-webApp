@@ -14,7 +14,6 @@ angular.module('ngBoilerplate.mail', ['ui.router'])
     })
 
 .controller("MailController", function ($scope, $http) {
-
         $scope.email = [];
         $scope.selectedMail = undefined;
         $scope.reply={};
@@ -25,7 +24,7 @@ angular.module('ngBoilerplate.mail', ['ui.router'])
             url: '/basic-web-app/getAllMails'
             })
             .success(function (data, status, headers) {
-                $scope.email=data.all;
+                $scope.email=data;
             })
             .error(function (data, status, headers) {
 
@@ -33,8 +32,17 @@ angular.module('ngBoilerplate.mail', ['ui.router'])
 
        $scope.sendReply = function(reply) {
            reply.sentAt = new Date();
-           $http.post('/basic-web-app/postMail', reply).success(function(reply,status,headers,config){
-               console.log(reply);
+
+           var data = {
+             id:reply.id,
+             from: reply.from,
+             subject: reply.subject,
+             sentAt: reply.sentAt,
+             body:reply.body
+           };
+
+           $http.post('/basic-web-app/postMail', data).success(function(data,status,headers,config){
+               console.log(data);
            });
        };
 

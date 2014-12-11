@@ -1,37 +1,28 @@
 package com.anmi.mailclient.web.controllers;
 
-import com.anmi.mailclient.entity.Mail;
+import com.anmi.mailclient.core.entity.Mail;
+import com.anmi.mailclient.core.service.MailService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
-import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.OutputStream;
+import java.util.List;
 
 @Controller
 @RequestMapping(produces = MediaType.ALL_VALUE)
 public class MailController {
-    @ResponseBody
+
+    @Autowired
+    private MailService mailService;
+
     @RequestMapping(method = RequestMethod.GET, value = "getAllMails")
     @ResponseStatus(HttpStatus.OK)
-    public void getAll(HttpServletResponse response) throws IOException {
-        String path = "data/mails.json";
-     //   File file = new ClassPathResource(path).getFile();
-        ClassLoader classLoader = getClass().getClassLoader();
-        File file = new File(classLoader.getResource(path).getFile());
-
-
-        OutputStream outputStream = response.getOutputStream();
-        try (FileInputStream fis = new FileInputStream(file)) {
-            FileCopyUtils.copy(fis, outputStream);
-            outputStream.flush();
-            outputStream.close();
-        }
+    public @ResponseBody List<Mail> getAll(HttpServletResponse response) throws IOException {
+        return mailService.getAll();
     }
 
 
